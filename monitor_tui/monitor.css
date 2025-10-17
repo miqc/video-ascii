@@ -1,0 +1,20 @@
+/* monitor.css */
+#metrics-grid {
+    layout: grid;
+    grid-size: 4 1;
+    grid-gutter: 1;
+    padding: 1;
+    height: auto;
+}
+
+MonitorDisplay {
+    height: 100%;
+    width: 100%;
+    content-align: center middle;
+    background: $panel;
+    color: $text;
+}
+
+#status {
+    background: $panel-darken-2;
+}

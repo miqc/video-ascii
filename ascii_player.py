@@ -3,7 +3,7 @@ from PIL import Image
 import os
 import time
 
-VIDEO_PATH = '3.mp4' 
+VIDEO_PATH = '1.mp4' 
 BLOCK_CHARS = ' `.-":;!*#%@'
 
 def get_terminal_size():
@@ -47,7 +47,7 @@ def main():
 
     fps = cap.get(cv2.CAP_PROP_FPS)
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    delay = 5 / fps if fps > 0 else 0.033
+    delay = 1 / fps if fps > 0 else 0.033
     frame_number = 0
 
     try:

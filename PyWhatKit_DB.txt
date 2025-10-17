@@ -1,0 +1,15 @@
+Date: 17/10/2025
+Time: 1:34
+Phone Number: +551299764472
+Message: Olá! Esta é uma mensagem automática enviada com Python.
+--------------------
+Date: 17/10/2025
+Time: 1:36
+Phone Number: +5511983917115
+Message: Olá! Esta é uma mensagem automática enviada com Python.
+--------------------
+Date: 17/10/2025
+Time: 1:41
+Phone Number: +554999857318
+Message: Essa mensagem foi enviada e automatizada em Python!
+--------------------

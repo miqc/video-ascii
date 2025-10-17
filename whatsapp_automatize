@@ -1,0 +1,14 @@
+import pywhatkit
+import time
+import pyautogui
+
+try:
+    number = input("Digite o número do destinatário (com código do país, ex: +5511999999999): ")
+    message = input("Digite a mensagem que deseja enviar: ")
+    pywhatkit.sendwhatmsg(number, message, 1, 42)
+    time.sleep(10) 
+    pyautogui.hotkey('ctrl', 'w')
+    print("Mensagem enviada com sucesso!")
+
+except Exception as e:
+    print(f"Ocorreu um erro: {e}")

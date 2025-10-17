@@ -3,15 +3,8 @@ from PIL import Image
 import os
 import time
 
-# --- CONFIGURAÇÕES ---
-VIDEO_PATH = 'seu_video.mp4'  # <-- Nome do seu vídeo
-
-# A GRANDE MUDANÇA: Usando caracteres de bloco para uma imagem mais fiel!
-# Ordenados do mais claro (mais vazio) para o mais escuro (mais cheio).
-# Paleta de alto contraste
+VIDEO_PATH = '3.mp4' 
 BLOCK_CHARS = ' `.-":;!*#%@'
-
-# --- FUNÇÕES AUXILIARES ---
 
 def get_terminal_size():
     """Obtém o tamanho do terminal (colunas, linhas)."""
@@ -23,22 +16,16 @@ def get_terminal_size():
 def frame_to_ascii(frame, width, height):
     """Converte um quadro de vídeo para arte ASCII com contraste melhorado e blocos."""
     try:
-        # Converte para tons de cinza usando OpenCV
         gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         
-        # APLICA A EQUALIZAÇÃO DE HISTOGRAMA para aumentar o contraste
         enhanced_gray_frame = cv2.equalizeHist(gray_frame)
 
-        # Converte o frame melhorado para uma imagem do Pillow
         image = Image.fromarray(enhanced_gray_frame)
         
-        # Redimensiona a imagem para o tamanho do terminal
         image = image.resize((width, height), Image.Resampling.LANCZOS)
         
         pixels = image.getdata()
         
-        # Mapeia cada pixel para um CARACTERE DE BLOCO
-        # A lógica é a mesma, só a paleta que mudou
         ascii_str = "".join([BLOCK_CHARS[int(pixel * (len(BLOCK_CHARS) - 1) / 255)] for pixel in pixels])
         
         ascii_img_lines = [ascii_str[i:i + width] for i in range(0, len(ascii_str), width)]
@@ -47,8 +34,6 @@ def frame_to_ascii(frame, width, height):
 
     except Exception:
         return ""
-
-# --- FUNÇÃO PRINCIPAL (continua igual) ---
 
 def main():
     if not os.path.exists(VIDEO_PATH):
@@ -62,7 +47,7 @@ def main():
 
     fps = cap.get(cv2.CAP_PROP_FPS)
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    delay = 1 / fps if fps > 0 else 0.033
+    delay = 5 / fps if fps > 0 else 0.033
     frame_number = 0
 
     try:

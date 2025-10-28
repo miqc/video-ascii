@@ -1,14 +1,53 @@
 import pywhatkit
 import time
 import pyautogui
+from datetime import datetime
 
 try:
     number = input("Digite o número do destinatário (com código do país, ex: +5511999999999): ")
     message = input("Digite a mensagem que deseja enviar: ")
-    pywhatkit.sendwhatmsg(number, message, 1, 42)
+    
+    print("\n=== OPÇÕES DE HORÁRIO ===")
+    print("1. Enviar agora")
+    print("2. Agendar para horário específico")
+    
+    option = input("\nEscolha uma opção (1 ou 2): ")
+    
+    if option == "1":
+        # Enviar em 2 minutos a partir de agora
+        now = datetime.now()
+        hour = now.hour
+        minute = now.minute + 2
+        
+        # Ajustar se os minutos passaram de 59
+        if minute >= 60:
+            minute -= 60
+            hour += 1
+        
+        print(f"Mensagem será enviada às {hour:02d}:{minute:02d}")
+        
+    elif option == "2":
+        hour = int(input("Digite a hora (0-23): "))
+        minute = int(input("Digite os minutos (0-59): "))
+        
+        # Validar horário
+        if not (0 <= hour <= 23 and 0 <= minute <= 59):
+            print("Horário inválido!")
+            exit()
+            
+        print(f"Mensagem agendada para {hour:02d}:{minute:02d}")
+        
+    else:
+        print("Opção inválida!")
+        exit()
+    
+    # Enviar mensagem
+    pywhatkit.sendwhatmsg(number, message, hour, minute)
     time.sleep(10) 
     pyautogui.hotkey('ctrl', 'w')
     print("Mensagem enviada com sucesso!")
 
+except ValueError:
+    print("Erro: Digite apenas números para o horário!")
 except Exception as e:
     print(f"Ocorreu um erro: {e}")

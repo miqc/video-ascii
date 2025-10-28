@@ -13,3 +13,38 @@ Time: 1:41
 Phone Number: +554999857318
 Message: Essa mensagem foi enviada e automatizada em Python!
 --------------------
+Date: 28/10/2025
+Time: 5:41
+Phone Number: +5512997164472
+Message: Teste
+--------------------
+Date: 28/10/2025
+Time: 5:43
+Phone Number: +5512997164472
+Message: Teste2
+--------------------
+Date: 28/10/2025
+Time: 5:45
+Phone Number: +5512997164472
+Message: Teste3
+--------------------
+Date: 28/10/2025
+Time: 5:48
+Phone Number: +5512997164472
+Message: TESTE3
+--------------------
+Date: 28/10/2025
+Time: 5:50
+Phone Number: +5512997164472
+Message: OOI
+--------------------
+Date: 28/10/2025
+Time: 5:51
+Phone Number: +5512997164472
+Message: Final Teste
+--------------------
+Date: 28/10/2025
+Time: 5:54
+Phone Number: +5512997283320
+Message: bom dia princesa, dormiu bem??
+--------------------
